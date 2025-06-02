@@ -8,7 +8,7 @@ public class WebSocketFrameHandler extends SimpleChannelInboundHandler<WebSocket
     public void channelRead0(ChannelHandlerContext ctx, WebSocketFrame frame) {
         if (frame instanceof TextWebSocketFrame) {
             System.out.println("Received: " + ((TextWebSocketFrame) frame).text());
-            ctx.channel().writeAndFlush(new TextWebSocketFrame("Echo: " + ((TextWebSocketFrame) frame).text()));
+            ctx.channel().writeAndFlush(new TextWebSocketFrame("Echo test: " + ((TextWebSocketFrame) frame).text()));
         } else if (frame instanceof CloseWebSocketFrame) {
             ctx.channel().close();
         }
